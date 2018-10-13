@@ -4,7 +4,8 @@
   "description": "Personal Website",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --open --host localhost --port 3001"
+    "start": "webpack-dev-server --open --host localhost --port 3001",
+    "server": "node service/app.js"
   },
   "babel": {
     "presets": [
@@ -27,7 +28,16 @@
     "style-loader": "^0.23.0",
     "webpack": "^4.20.2",
     "webpack-cli": "^3.1.2",
-    "webpack-dev-server": "^3.1.9"
+    "webpack-dev-server": "^3.1.9",
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "genesys-authentication-client-js": "latest",
+    "genesys-provisioning-client-js": "^1.0.522",
+    "genesys-workspace-client-js": "latest",
+    "morgan": "^1.9.0",
+    "package.json": "^2.0.1",
+    "request": "^2.88.0",
+    "socket.io": "^2.1.1"
   },
   "dependencies": {
     "package.json": "^2.0.1"
