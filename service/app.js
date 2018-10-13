@@ -10,10 +10,11 @@ const authentication = require('genesys-authentication-client-js');
 const ProvisioningApi = require('genesys-provisioning-client-js');
 const Statistics = require('genesys-statistics-client-js');
 const uuid = require('uuid/v4');
+var cors = require('cors');
 
 
-const app = express();
-
+var app = express();
+app.use(cors());
 const server = require('http').Server(app);
 
 // Socket.io is used to send messages to webapp

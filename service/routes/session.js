@@ -80,9 +80,16 @@ module.exports = function (app, io, workspaceApi, storage, request, statisticsAp
       initializeWorkspace(body, res);
      });
   });
-
+  app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header('Access-Control-Allow-Methods', '*');
+    res.header("Access-Control-Allow-Headers", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+  });
   // Logging in (redirect to auth page)
-  app.get('/login', (req, res) => {
+  app.get('/login', (req, res, next) => {
+  
     //To log in with a login page
     console.log('hit')
     loginWithLoginPage(req,res);
