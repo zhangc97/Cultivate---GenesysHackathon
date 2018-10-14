@@ -11,6 +11,9 @@
     "presets": [
       "@babel/preset-env",
       "@babel/preset-react"
+    ],
+    "plugins": [
+      "babel-plugin-transform-class-properties"
     ]
   },
   "author": "Chray Zhang",
@@ -41,7 +44,10 @@
     "genesys-statistics-client-js": "^1.0.343"
   },
   "dependencies": {
+    "axios": "^0.18.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
     "cors": "^2.8.4",
-    "package.json": "^2.0.1"
+    "package.json": "^2.0.1",
+    "prop-types": "^15.6.2"
   }
 }

@@ -9,8 +9,8 @@ class App extends React.Component {
       <div className = 'main-container'>
 
         <Switch>
-          <Route exact path = '/' component = {HomePage} />
-          <Route path = '/authenticated' component = {MainPage} />
+          <Route exact path = '/' render = {(props) => <HomePage {...props} />} />
+          <Route path = '/home' component = {MainPage} />
         </Switch>
       </div>
     )

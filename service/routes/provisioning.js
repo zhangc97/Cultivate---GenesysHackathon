@@ -1,7 +1,7 @@
 module.exports = function (app, request, provisioningApi, storage) {
 
     app.get('/provisioning/get-users', async (req, res) => {
-      provisioningApi.users.getUsers().then( (data) => {
+      provisioningApi.users.getUsers(20).then( (data) => {
         res.send(data);
       })
       .catch((error) => {
@@ -10,4 +10,3 @@ module.exports = function (app, request, provisioningApi, storage) {
       });
     });
   }
-  

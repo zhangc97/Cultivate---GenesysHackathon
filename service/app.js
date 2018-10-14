@@ -45,8 +45,8 @@ const workspaceApi = new workspace(storage.apiKey, storage.apiUrl);
 const statisticsApi = new Statistics(storage.apiKey, storage.apiUrl);
 
 // Serve webapp
-app.use(express.static('webapp', {
-  extensions: ['html', 'htm']
+app.use(express.static('app', {
+  extensions: ['js', 'htm']
 }));
 
 // Router W/auth

@@ -12,6 +12,7 @@ module.exports = function (app, io, workspaceApi, storage, request, statisticsAp
     let username = 'StephaneHervochon@genesys.com';
     // Your agent password
     let password = 'Genesys2!';
+
     request.post(`${storage.apiUrl}/auth/v3/oauth/token`, {
       headers: {
         'x-api-key': storage.apiKey,
@@ -32,13 +33,15 @@ module.exports = function (app, io, workspaceApi, storage, request, statisticsAp
   };
 
   function initializeWorkspace(body, res) {
+    console.log('im there')
     storage.token = body.access_token;
     workspaceApi.initialize({token: storage.token}).then(() => {
         workspaceApi.activateChannels(workspaceApi.user.employeeId, null, workspaceApi.user.defaultPlace).then(() => {
           storage.user = workspaceApi.user;
           statisticsApi.initialize(storage.token).then( () => {
             provisioningApi.initialize({token: storage.token}).then( () => {
-              res.redirect('/authenticated');
+
+              res.send('logged_in');
             });
           });
         })
@@ -89,10 +92,10 @@ module.exports = function (app, io, workspaceApi, storage, request, statisticsAp
   });
   // Logging in (redirect to auth page)
   app.get('/login', (req, res, next) => {
-  
+
     //To log in with a login page
     console.log('hit')
-    loginWithLoginPage(req,res);
+    loginWithoutLoginPage(req,res);
     //To log in without a login page (userName & password available in the request to get auth token)
     //loginWithoutLoginPage(req,res);
   });
