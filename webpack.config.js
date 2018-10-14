@@ -12,7 +12,18 @@ module.exports = {
   module: {
     rules: [
       { test: /\.(js)$/, use: 'babel-loader' },
-      { test: /\.css$/, use: [ 'style-loader', 'css-loader' ]}
+      { test: /\.css$/, use: [ 'style-loader', 'css-loader' ]},
+      {
+    test: /\.(jpg|png|gif|svg|pdf|ico)$/,
+    use: [
+        {
+            loader: 'file-loader',
+            options: {
+                name: '[path][name]-[hash:8].[ext]'
+            },
+        },
+    ]
+},
     ]
   },
   devServer: {
